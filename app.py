@@ -17,10 +17,10 @@ img_width, img_height = 300, 300
 
 train_data_dir = 'v_data/train'
 validation_data_dir = 'v_data/test'
-nb_train_samples = 126
-nb_validation_samples = 30
+nb_train_samples = 840
+nb_validation_samples = 124
 epochs = 50000
-batch_size = 2
+batch_size = 3
 
 if K.image_data_format() == 'channels_first': 
 	input_shape = (3, img_width, img_height) 
@@ -45,7 +45,7 @@ model.add(Dense(64))
 model.add(Activation('relu')) 
 model.add(Dropout(0.5)) 
 model.add(Dense(1)) 
-model.add(Activation('sigmoid')) 
+model.add(Activation('softmax'))
 
 
 model.compile(loss='binary_crossentropy', 
